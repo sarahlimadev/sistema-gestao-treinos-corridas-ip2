@@ -2,7 +2,7 @@
 
 * Sarah Pereira de Araújo Lima - sarahpereiradal@gmail.com
 * Letícia Medeiros Cavalcante - ticiamedeiroscavalcante@gmail.com
-* Yadson Florêncio Leite - yadson.leite@ufrpe.br
+* Yadson Florêncio Leite - yadsonflorencio7@gmail.com
 * João Miguel Oliveira de Carvalho - joaomigueloliveira@ufrpe.br
 
 # Sistema de Gestão de Treinos e Corridas
