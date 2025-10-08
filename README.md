@@ -5,6 +5,9 @@
 * Yadson Florêncio Leite - yadsonflorencio7@gmail.com
 * João Miguel Oliveira de Carvalho - joaomigueloliveira@ufrpe.br
 
+## link do UML para edição: 
+https://www.mermaidchart.com/app/projects/78973b59-9842-44bc-82c2-aaf3eeb54dce/diagrams/627160cb-7caf-47cf-b3a8-0d3613aa87dd/version/v0.1/edit
+
 # Sistema de Gestão de Treinos e Corridas
 
 ## Descrição
