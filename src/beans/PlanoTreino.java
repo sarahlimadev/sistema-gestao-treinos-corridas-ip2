@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class PlanoTreino {
     private String id;
     private ArrayList<Treino> treinos;
-    private LocalDate data_inicio;
-    private LocalDate data_fim;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
 
-    public PlanoTreino(String id, LocalDate data_inicio, LocalDate data_fim) {
+    public PlanoTreino(String id, LocalDate dataInicio, LocalDate dataFim) {
         this.id = id;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
         this.treinos = new ArrayList<>();
-        this.data_inicio = data_inicio;
-        this.data_fim = data_fim;
     }
 
     public String getId() {
@@ -24,43 +24,28 @@ public class PlanoTreino {
         this.id = id;
     }
 
-    public LocalDate getData_inicio() {
-        return data_inicio;
+    public LocalDate getDataInicio() {
+        return dataInicio;
     }
 
-    public void setData_inicio(LocalDate data_inicio) {
-        this.data_inicio = data_inicio;
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
-    public LocalDate getData_fim() {
-        return data_fim;
+    public LocalDate getDataFim() {
+        return dataFim;
     }
 
-    public void setData_fim(LocalDate data_fim) {
-        this.data_fim = data_fim;
+    public void setDataFim(LocalDate dataFim) {
+        this.dataFim = dataFim;
     }
 
     
     public void adicionarTreino(Treino treino){
-        treinos.add(treino);
+        this.treinos.add(treino);
     }
 
-    public String removerTreino(String id_treino){
-        String resultado = "Treino não encontrado"; 
-        for (Treino treino : treinos){
-            if (id_treino.equals(treino.getId())){
-                treinos.remove(treino);
-                resultado = String.format("Treino %s removido com sucesso!", id_treino);
-                break;
-            }
-        }
-
-        return resultado;
+    public void removerTreino(Treino treino){
+        this.treinos.remove(treino);
     }
-
-    public void atualizarDatas(LocalDate d_i, LocalDate d_f){
-        this.setData_inicio(d_i);
-        this.setData_fim(d_f);
-    }
-
 }
