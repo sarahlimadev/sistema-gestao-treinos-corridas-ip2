@@ -8,7 +8,7 @@ public class ParticipanteDesafio{
 
     public ParticipanteDesafio(String id, double progresso, Pessoa pessoa) {
         this.id = id;
-        this.progresso = progresso;
+        this.setProgresso(progresso);
         this.pessoa = pessoa;
     }
 
@@ -29,7 +29,12 @@ public class ParticipanteDesafio{
 
 
     public void setProgresso(double progresso) {
-        this.progresso = progresso;
+        if (progresso > 0){
+            this.progresso = progresso;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (progresso negativo)!");
+        }
     }
 
 

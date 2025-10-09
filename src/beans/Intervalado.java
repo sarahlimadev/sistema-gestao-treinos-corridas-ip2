@@ -13,9 +13,9 @@ public class Intervalado extends Treino{
             int repeticoes, int intervalor_rep) {
         super(dataHora, tempo, pessoa, met);
         this.id = id;
-        this.series = series;
-        this.repeticoes = repeticoes;
-        this.intervalor_rep = intervalor_rep;
+        this.setSeries(series);
+        this.setRepeticoes(repeticoes);
+        this.setIntervalor_rep(intervalor_rep);;
     }
 
 
@@ -35,7 +35,12 @@ public class Intervalado extends Treino{
 
 
     public void setSeries(int series) {
-        this.series = series;
+        if (series > 0){
+            this.series = series;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (series negativas)!");
+        }
     }
 
 
@@ -45,7 +50,12 @@ public class Intervalado extends Treino{
 
 
     public void setRepeticoes(int repeticoes) {
-        this.repeticoes = repeticoes;
+        if (repeticoes > 0){
+            this.repeticoes = repeticoes;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (repetições negativas)!");
+        }
     }
 
 
@@ -55,7 +65,12 @@ public class Intervalado extends Treino{
 
 
     public void setIntervalor_rep(int intervalor_rep) {
-        this.intervalor_rep = intervalor_rep;
+        if (intervalor_rep > 0){
+            this.intervalor_rep = intervalor_rep;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (intervalo negativo)!");
+        }
     }
 
     

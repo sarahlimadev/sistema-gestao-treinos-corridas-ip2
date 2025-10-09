@@ -10,7 +10,7 @@ public class Corrida extends Treino {
     public Corrida(LocalDateTime dataHora, double tempo, Pessoa pessoa, double met, String id, double distancia) {
         super(dataHora, tempo, pessoa, met);
         this.id = id;
-        this.distancia = distancia;
+        this.setDistancia(distancia);
     }
 
 
@@ -30,7 +30,12 @@ public class Corrida extends Treino {
 
 
     public void setDistancia(double distancia) {
-        this.distancia = distancia;
+        if (distancia > 0){
+            this.distancia = distancia;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (distância negativa)!");
+        }
     }
 
     

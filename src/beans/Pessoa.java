@@ -15,9 +15,9 @@ public class Pessoa {
     public Pessoa(String id, String nome, int idade, double peso, double altura, String email) {
         this.id = id;
         this.nome = nome;
-        this.idade = idade;
-        this.peso = peso;
-        this.altura = altura;
+        this.setIdade(idade);
+        this.setPeso(peso);
+        this.setAltura(altura);
         this.email = email;
         this.planos = new ArrayList<>();
         this.desafios = new ArrayList<>();
@@ -44,7 +44,12 @@ public class Pessoa {
     }
 
     public void setIdade(int idade) {
-        this.idade = idade;
+        if (idade > 0){
+            this.idade = idade;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (idade negativa)!");
+        }
     }
 
     public double getPeso() {
@@ -52,7 +57,12 @@ public class Pessoa {
     }
 
     public void setPeso(double peso) {
-        this.peso = peso;
+        if (peso > 0){
+            this.peso = peso;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (peso negativa)!");
+        }
     }
 
     public double getAltura() {
@@ -60,7 +70,12 @@ public class Pessoa {
     }
 
     public void setAltura(double altura) {
-        this.altura = altura;
+        if (altura > 0){
+            this.altura = altura;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (altura negativa)!");
+        }
     }
 
     public String getEmail() {

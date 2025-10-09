@@ -14,7 +14,7 @@ public class Notificacao {
         this.id = id;
         this.tipo = tipo;
         this.mensagem = mensagem;
-        this.dataHora = dataHora;
+        this.setDataHora(dataHora);
     }
 
 
@@ -54,7 +54,13 @@ public class Notificacao {
 
 
     public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+        LocalDateTime dataHoraAtual = LocalDateTime.now();
+        if (dataHora.isAfter(dataHoraAtual) || dataHora.isEqual(dataHoraAtual)){
+            this.dataHora = dataHora;
+        }
+        else{
+            throw new IllegalArgumentException("Data/Hora inválido");
+        }
     }
 
 

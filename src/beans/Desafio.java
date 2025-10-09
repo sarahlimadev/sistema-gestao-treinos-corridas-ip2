@@ -17,9 +17,9 @@ public class Desafio {
         this.id = id;
         this.tipo = tipo;
         this.descricao = descricao;
-        this.objetivo = objetivo;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.setObjetivo(objetivo);
+        this.setDataInicio(dataInicio);
+        this.setDataFim(dataFim);
         this.parts = new ArrayList<>();
     }
 
@@ -60,7 +60,13 @@ public class Desafio {
 
 
     public void setObjetivo(double objetivo) {
-        this.objetivo = objetivo;
+        if (objetivo > 0)
+        {
+            this.objetivo = objetivo;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (objetivo negativo)!");
+        }
     }
 
 
@@ -70,7 +76,13 @@ public class Desafio {
 
 
     public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
+        LocalDate atual = LocalDate.now();
+        if (dataInicio.isAfter(atual) || dataInicio.isEqual(atual)){
+            this.dataInicio = dataInicio;
+        }
+        else{
+            throw new IllegalArgumentException("Data início inválida!");
+        }
     }
 
 
@@ -80,7 +92,13 @@ public class Desafio {
 
 
     public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
+        LocalDate atual = LocalDate.now();
+        if (dataFim.isAfter(atual) || dataFim.isEqual(atual)){
+            this.dataFim = dataFim;
+        }
+        else{
+            throw new IllegalArgumentException("Data fim inválida!");
+        }
     }
 
 

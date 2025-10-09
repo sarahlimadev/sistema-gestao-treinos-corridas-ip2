@@ -10,10 +10,10 @@ public abstract class Treino {
 
 
     public Treino(LocalDateTime dataHora, double tempo, Pessoa pessoa, double met) {
-        this.dataHora = dataHora;
-        this.tempo = tempo;
+        this.setDataHora(dataHora);
+        this.setTempo(tempo);
         this.pessoa = pessoa;
-        this.met = met;
+        this.setMet(met);
     }
     
 
@@ -22,13 +22,15 @@ public abstract class Treino {
     }
 
 
-
-
     public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+        LocalDateTime dataHoraAtual = LocalDateTime.now();
+        if (dataHora.isAfter(dataHoraAtual) || dataHora.isEqual(dataHoraAtual)){
+            this.dataHora = dataHora;
+        }
+        else{
+            throw new IllegalArgumentException("Data/Hora inválido");
+        }
     }
-
-
 
 
     public double getTempo() {
@@ -36,14 +38,15 @@ public abstract class Treino {
     }
 
 
-
-
     public void setTempo(double tempo) {
-        this.tempo = tempo;
+        if (tempo > 0){
+            this.tempo = tempo;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (tempo negativo)!");
+        }
     }
-
-
-
+    
 
     public Pessoa getPessoa() {
         return pessoa;
@@ -67,11 +70,13 @@ public abstract class Treino {
 
 
     public void setMet(double met) {
-        this.met = met;
+        if (met > 0){
+            this.met = met;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (MET negativo)!");
+        }
     }
-
-
-
 
     public double calcularCalorias(){
         return this.met * this.pessoa.getPeso() * this.pessoa.getAltura();

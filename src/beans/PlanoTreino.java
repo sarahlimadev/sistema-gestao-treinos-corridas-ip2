@@ -11,8 +11,8 @@ public class PlanoTreino {
 
     public PlanoTreino(String id, LocalDate dataInicio, LocalDate dataFim) {
         this.id = id;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.setDataInicio(dataInicio);
+        this.setDataFim(dataFim);
         this.treinos = new ArrayList<>();
     }
 
@@ -29,7 +29,13 @@ public class PlanoTreino {
     }
 
     public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
+        LocalDate dataAtual = LocalDate.now();
+        if (dataInicio.isAfter(dataAtual) || dataInicio.isEqual(dataAtual)){
+            this.dataInicio = dataInicio;
+        }
+        else{
+            throw new IllegalArgumentException("Data de Início inválida!");
+        }
     }
 
     public LocalDate getDataFim() {
@@ -37,7 +43,13 @@ public class PlanoTreino {
     }
 
     public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
+        LocalDate dataAtual = LocalDate.now();
+        if (dataFim.isAfter(dataAtual) || dataFim.isEqual(dataAtual)){
+            this.dataFim = dataFim;
+        }
+        else{
+            throw new IllegalArgumentException("Data Fim inválida!");
+        }
     }
 
     

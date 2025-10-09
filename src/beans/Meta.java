@@ -14,9 +14,9 @@ public class Meta {
     public Meta(String id, String tipo, LocalDate data_inicio, LocalDate data_fim, double objetivo, String status) {
         this.id = id;
         this.tipo = tipo;
-        this.data_inicio = data_inicio;
-        this.data_fim = data_fim;
-        this.objetivo = objetivo;
+        this.setData_inicio(data_inicio);
+        this.setData_fim(data_fim);
+        this.setObjetivo(objetivo);
         this.status = status;
     }
 
@@ -46,7 +46,13 @@ public class Meta {
 
 
     public void setData_inicio(LocalDate data_inicio) {
-        this.data_inicio = data_inicio;
+        LocalDate atual = LocalDate.now();
+        if (data_inicio.isAfter(atual) || data_inicio.isEqual(atual)){
+            this.data_inicio = data_inicio;
+        }
+        else{
+            throw new IllegalArgumentException("Data início inválida!");
+        }
     }
 
 
@@ -56,7 +62,13 @@ public class Meta {
 
 
     public void setData_fim(LocalDate data_fim) {
-        this.data_fim = data_fim;
+        LocalDate atual = LocalDate.now();
+        if (data_fim.isAfter(atual) || data_fim.isEqual(atual)){
+            this.data_fim = data_fim;
+        }
+        else{
+            throw new IllegalArgumentException("Data início inválida!");
+        }
     }
 
 
@@ -66,7 +78,12 @@ public class Meta {
 
 
     public void setObjetivo(double objetivo) {
-        this.objetivo = objetivo;
+        if (objetivo > 0){
+            this.objetivo = objetivo;
+        }
+        else{
+            throw new IllegalArgumentException("Dado inválido (objetivo negativo)!");
+        }
     }
 
 
